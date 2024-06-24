@@ -1,0 +1,10 @@
+@use "./partials/projects-index" as *;
+@use "./partials/projects-create" as *;
+@use "./partials/projects-editselector" as *;
+
+
+@import "~bootstrap/scss/bootstrap";
+
+a {
+    text-decoration: none;
+}
