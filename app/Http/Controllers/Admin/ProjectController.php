@@ -38,7 +38,7 @@ class ProjectController extends Controller
         $newProject = new Project();
         $newProject->fill($data);
         $newProject->slug = Str::slug($newProject->title);
-        // dd($newProject);
+        dd($newProject);
 
         $newProject->save();
 
