@@ -27,6 +27,15 @@
 
                     <label for="descrizione" class="form-label">Descrizione</label>
                     <textarea type="text-area" class="form-control" id="descrizione" aria-describedby="emailHelp" name="description" value="{{ old("description") }}"></textarea>    
+
+                    <label class="mt-1 mb-2" for="type">Seleziona un linguaggio</label>
+                    <br>
+                    <select class="fs-6 p-1" name="type_id" id="type">
+                        <option disabled="disabled" selected="selected">Seleziona un linguaggio</option>
+                        @foreach ($types as $type)
+                            <option @selected(old("type") === $type->name) value="{{$type->id}}">{{ $type->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <button type="submit" class="btn btn-primary">Aggiungi</button>
             </form>

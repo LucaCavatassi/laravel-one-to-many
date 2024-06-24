@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreProjectRequest;
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -23,24 +25,16 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view("admin.projects.create");
+        $types = Type::all();
+        return view("admin.projects.create", compact("types"));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreProjectRequest $request)
     {
-        $request->validate([
-            "title" => "required|max:30|unique:projects",
-            "description" => "max:300"
-        ], [
-            "title.required" => "Il titolo è necessario per aggiungere un nuovo progetto!",
-            "title.max" => "La lunghezza massima della titolo è di 30 caratteri!",
-            "title.unique" => "Il titolo è già utilizzato cambia titolo!",
-            "description.max" => "La lunghezza massima della descrizione è di 300 caratteri!"
-        ]);
-        $data = $request->all();
+        $data = $request->validated();
         $newProject = new Project();
         $newProject->fill($data);
         $newProject->slug = Str::slug($newProject->title);
