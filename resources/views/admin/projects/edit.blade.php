@@ -29,10 +29,12 @@
                     <label for="descrizione" class="form-label">Descrizione</label>
                     <textarea type="text-area" class="form-control" id="descrizione" aria-describedby="description" name="description">{{ old('description', $project->description) }}</textarea>    
 
+                    <label class="mt-1 mb-2" for="type">Seleziona un linguaggio</label>
+                    <br>
                     <select class="fs-6 p-1" name="type_id" id="type">
                         <option disabled="disabled" selected="selected">Seleziona un linguaggio</option>
                         @foreach ($types as $type)
-                            <option @@selected({{ old('title', $project->title) }}) value="{{$type->id}}">{{ $type->name }}</option>
+                            <option @selected(old("type_id") == $type->id ? "selected" : "") value="{{$type->id}}">{{ $type->name }}</option>
                         @endforeach
                     </select>
                 </div>
