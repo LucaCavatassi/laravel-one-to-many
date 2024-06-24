@@ -68,18 +68,9 @@ class ProjectController extends Controller
      */
     public function update(Request $request, string $slug)
     {
-        $request->validate([
-            "title" => "required|max:30|unique:projects",
-            "description" => "max:300"
-        ], [
-            "title.required" => "Il titolo è necessario per aggiungere un nuovo progetto!",
-            "title.max" => "La lunghezza massima della titolo è di 30 caratteri!",
-            "title.unique" => "Il titolo è già utilizzato cambia titolo!",
-            "description.max" => "La lunghezza massima della descrizione è di 300 caratteri!"
-        ]);
         $project = Project::where("slug", $slug)->first();
         
-        $data = $request->all();
+        $data = $request->validated();
         
         $project->slug = Str::slug($request->title);
         $project->update($data);
