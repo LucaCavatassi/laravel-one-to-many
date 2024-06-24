@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProjectRequest;
+use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
 use App\Models\Type;
 use Illuminate\Http\Request;
@@ -60,13 +61,14 @@ class ProjectController extends Controller
     public function edit(string $slug)
     {
         $project = Project::where("slug", $slug)->first();
-        return view("admin.projects.edit", compact("project"));
+        $types = Type::all();
+        return view("admin.projects.edit", compact("project", "types"));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $slug)
+    public function update(UpdateProjectRequest $request, string $slug)
     {
         $project = Project::where("slug", $slug)->first();
         

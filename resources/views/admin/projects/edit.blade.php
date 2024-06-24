@@ -28,6 +28,13 @@
 
                     <label for="descrizione" class="form-label">Descrizione</label>
                     <textarea type="text-area" class="form-control" id="descrizione" aria-describedby="description" name="description">{{ $project->description }}</textarea>    
+
+                    <select class="fs-6 p-1" name="type_id" id="type">
+                        <option disabled="disabled" selected="selected">Seleziona un linguaggio</option>
+                        @foreach ($types as $type)
+                            <option value="{{$type->id}}">{{ $type->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <button type="submit" class="btn btn-primary">Invia</button>
                 
