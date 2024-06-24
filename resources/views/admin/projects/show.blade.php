@@ -11,7 +11,17 @@
         <h2 class="fw-bold text-primary mt-3">Descrizione Progetto</h2>
         <p class="fs-2">{{ $project->description }}</p>
         <hr>
-        <h4 class="fw-bold text-primary mt-3">Slug ID</h4>
+        <div class="d-flex gap-5">
+            <div>
+                <h4 class="fw-bold text-primary mt-3">Linguaggio/Framework</h4>
+                <p>{{ $project->type?->name }}</p>
+            </div>
+            <div>
+                <h4 class="fw-bold text-primary mt-3">Campo Di Lavoro</h4>
+                <p>{{ $project->type?->field }}</p>
+            </div>
+        </div>
+        <h6 class="fw-bold text-primary mt-3">Slug ID</h6>
         <p>{{ $project->slug }}</p>
     </div>
 @endsection
