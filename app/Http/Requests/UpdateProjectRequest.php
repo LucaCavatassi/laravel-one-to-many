@@ -23,7 +23,7 @@ class UpdateProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "title" => ["required","max:30","unique:projects", Rule::unique('projects')->ignore($this->id)],
+            "title" => ["required","max:30","unique:projects", Rule::unique("projects", "title")->ignore($this->id, "title")],
             "description" => "max:300",
             "type_id"=>"required|exists:types,id"
         ];

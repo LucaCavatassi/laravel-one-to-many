@@ -68,9 +68,9 @@ class ProjectController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProjectRequest $request, string $slug)
+    public function update(UpdateProjectRequest $request, Project $project)
     {
-        $project = Project::where("slug", $slug)->first();
+        $project = Project::where("slug", $project->slug)->first();
         
         $data = $request->validated();
         

@@ -19,15 +19,15 @@
                 
             @endif
 
-            <form action="{{ route("admin.projects.update", ["project" => $project->slug]) }}" method="POST">
+            <form action="{{ route("admin.projects.update", ["project" => $project]) }}" method="POST">
                 @method("PUT")
                 @csrf
                 <div class="mb-3">
                     <label for="titolo" class="form-label">Titolo</label>
-                    <input type="text" class="form-control" id="titolo" aria-describedby="titolo" name="title" value="{{ $project->title }}">
+                    <input type="text" class="form-control" id="titolo" aria-describedby="titolo" name="title" value="{{ old('title', $project->title) }}">
 
                     <label for="descrizione" class="form-label">Descrizione</label>
-                    <textarea type="text-area" class="form-control" id="descrizione" aria-describedby="description" name="description">{{ $project->description }}</textarea>    
+                    <textarea type="text-area" class="form-control" id="descrizione" aria-describedby="description" name="description">{{ old('description', $project->description) }}</textarea>    
 
                     <select class="fs-6 p-1" name="type_id" id="type">
                         <option disabled="disabled" selected="selected">Seleziona un linguaggio</option>
