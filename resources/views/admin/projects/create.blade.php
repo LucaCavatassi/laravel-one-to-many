@@ -23,10 +23,10 @@
                 @csrf
                 <div class="mb-3">
                     <label for="titolo" class="form-label">Titolo</label>
-                    <input type="text" class="form-control" id="titolo" aria-describedby="emailHelp" name="title" value="{{ old("title") }}">
+                    <input type="text" class="form-control" id="titolo" aria-describedby="titolo" name="title" value="{{ old("title") }}">
 
                     <label for="descrizione" class="form-label">Descrizione</label>
-                    <textarea type="text-area" class="form-control" id="descrizione" aria-describedby="emailHelp" name="description">{{ old("description") }}</textarea>    
+                    <textarea type="text-area" class="form-control" id="descrizione" aria-describedby="descrizione" name="description">{{ old("description") }}</textarea>    
 
                     <label class="mt-1 mb-2" for="type">Seleziona un linguaggio</label>
                     <br>

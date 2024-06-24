@@ -33,7 +33,7 @@ class StoreProjectRequest extends FormRequest
         return [
             "title.required" => "Il titolo è necessario per aggiungere un nuovo progetto!",
             "title.max" => "La lunghezza massima della titolo è di 30 caratteri!",
-            "title.unique" => "Il titolo è già utilizzato cambia titolo!",
+            "title.unique" => "Il titolo è già in utilizzo, cambia titolo!",
             "description.max" => "La lunghezza massima della descrizione è di 300 caratteri!",
             "type_id.required" => "Il linguaggio è necessario per aggiungere un nuovo progetto!",
             "type_id.exists" => "Questo linguaggio non esiste."
