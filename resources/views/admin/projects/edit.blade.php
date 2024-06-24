@@ -32,7 +32,7 @@
                     <select class="fs-6 p-1" name="type_id" id="type">
                         <option disabled="disabled" selected="selected">Seleziona un linguaggio</option>
                         @foreach ($types as $type)
-                            <option value="{{$type->id}}">{{ $type->name }}</option>
+                            <option @@selected({{ old('title', $project->title) }}) value="{{$type->id}}">{{ $type->name }}</option>
                         @endforeach
                     </select>
                 </div>
